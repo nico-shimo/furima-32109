@@ -44,8 +44,8 @@
 
 | Colum        |  Type       | Options                        |
 |--------------|-------------|--------------------------------|
-| user_id      | references  | null: false, foreign_key: true |
-| item_id      | references  | null: false, foreign_key: true |
+| user         | references  | null: false, foreign_key: true |
+| item         | references  | null: false, foreign_key: true |
 
 ### Association
 
@@ -65,8 +65,7 @@
 | address                | string      | null: false                     |
 | building_name          | string      |                                 |
 | phone_number           | string      | null: false, unique: true       |
-| item_id                | references  | null: false, foreign_key: true  |
-| user_id                | references  | null: false, foreign_key: true  |
+| purchase_record        | references  | null: false, foreign_key: true  |
 
 ### Association
 
