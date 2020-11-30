@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :days
 
 
-  validates :name, :introduction, :category_id, :condition_id, :prefecture_id, :days_id, :postage_id, :price, presence: true
+  validates :name, :introduction, :category_id, :image, :condition_id, :prefecture_id, :days_id, :postage_id, :price, presence: true
 
   validates :category_id, numericality: {other_than: 1 }
   validates :condition_id, numericality: {other_than: 1 }
