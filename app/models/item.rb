@@ -8,11 +8,13 @@ class Item < ApplicationRecord
 
   validates :name, :introduction, :category_id, :image, :condition_id, :prefecture_id, :days_id, :postage_id, :price, presence: true
 
-  validates :category_id, numericality: { other_than: 1 }
-  validates :condition_id, numericality: { other_than: 1 }
-  validates :postage_id, numericality: { other_than: 1 }
-  validates :prefecture_id, numericality: { other_than: 1 }
-  validates :days_id, numericality: { other_than: 1 }
+  with_options numericality: { other_than: 1, message: 'Select' } do
+    validates :category_id
+    validates :condition_id
+    validates :postage_id
+    validates :prefecture_id
+    validates :days_id
+  end
 
   belongs_to :user
   has_one :purchase_record

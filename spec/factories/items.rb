@@ -2,12 +2,12 @@ FactoryBot.define do
   factory :item do
     name            { Faker::Name.initials }
     introduction    { Faker::Lorem.sentence }
-    category_id     { '2' }
-    condition_id    { '2' }
-    postage_id      { '2' }
-    prefecture_id   { '2' }
-    days_id         { '2' }
-    price           { '1000' }
+    category_id     { 2 }
+    condition_id    { 2 }
+    postage_id      { 2 }
+    prefecture_id   { 2 }
+    days_id         { 2 }
+    price           { 1000 }
     association :user
 
     after(:build) do |item|

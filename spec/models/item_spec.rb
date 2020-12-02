@@ -32,25 +32,50 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
+      it 'condition_idが1の場合は出品商品は保存できない' do
+        @item.condition_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Condition Select')
+      end
       it '商品のカテゴリーが入力されていないと出品商品は保存できない' do
         @item.category_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
+      it 'cotegory_idが1の場合は出品商品は保存できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category Select')
       end
       it '送料負担が入力されていないと出品商品は保存できない' do
         @item.postage_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
+      it 'postage_idが1の場合は出品商品は保存できない' do
+        @item.postage_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Postage Select')
+      end
       it '発送元の地域が入力されていないと出品商品は保存できない' do
         @item.prefecture_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
+      it 'prefecture_idが1の場合は出品商品は保存できない' do
+        @item.prefecture_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Prefecture Select')
+      end
       it '発送にかかる日数が入力されていないと出品商品は保存できない' do
         @item.days_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Days can't be blank")
+      end
+      it 'days_idが1の場合は出品商品は保存できない' do
+        @item.days_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Days Select')
       end
       it '価格が入力されていないと出品商品は保存できない' do
         @item.price = ''

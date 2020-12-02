@@ -1,14 +1,12 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: :new
+
   def index
     @items = Item.all
   end
 
   def new
-    if user_signed_in?
-      @item = Item.new
-    else
-      render('devise/sessions/new')
-    end
+    @item = Item.new
   end
 
   def create
