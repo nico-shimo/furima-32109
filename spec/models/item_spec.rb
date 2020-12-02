@@ -85,7 +85,7 @@ RSpec.describe Item, type: :model do
       it '価格が300~9999999の間でないと出品商品は保存できない' do
         @item.price = 10
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Price")
+        expect(@item.errors.full_messages).to include('Price Price')
       end
       it 'userが紐付いていないと保存できないこと' do
         @item.user = nil

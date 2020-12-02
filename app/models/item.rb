@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     validates :condition_id
     validates :days_id
     validates :postage_id
-    validates :price, inclusion: {in: 300..9999999, message: 'Price' }
+    validates :price, inclusion: { in: 300..9_999_999, message: 'Price' }
   end
 
   with_options numericality: { other_than: 1, message: 'Select' } do
