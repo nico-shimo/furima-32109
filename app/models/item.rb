@@ -9,12 +9,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :introduction
-    validates :category_id
     validates :image
-    validates :prefecture_id
-    validates :condition_id
-    validates :days_id
-    validates :postage_id
     validates :price, inclusion: { in: 300..9_999_999, message: 'Price' }
   end
 
