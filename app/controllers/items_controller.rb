@@ -19,6 +19,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.find_by(id:params[:id])
+    @purchase = Purchase.all
+  end
+
   private
 
   def item_params

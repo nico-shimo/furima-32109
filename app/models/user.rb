@@ -21,4 +21,5 @@ class User < ApplicationRecord
 
   # has_many :prototypes, dependent: :destroy
   has_many :items, dependent: :destroy
+  has_many :purchase, dependent: :destroy
 end

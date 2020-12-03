@@ -40,7 +40,7 @@
 - has_one :purchase_record
 
 
-## purchase_recordテーブル
+## purchaseテーブル
 
 | Colum        |  Type       | Options                        |
 |--------------|-------------|--------------------------------|
