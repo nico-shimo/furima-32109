@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get "items/show/:id" => "items#show"
   devise_for :users
+  get "items/show/:id" => "items#show"
   root to: 'items#index'
-  resources :items, only: [:index, :new, :create, :show]
+  resources :items, only: [:index, :new, :create, :show, :edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
