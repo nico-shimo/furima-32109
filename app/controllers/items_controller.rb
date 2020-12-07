@@ -22,6 +22,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @purchase = Purchase.new
+    @purchases = @item.purchase
   end
 
   def edit
