@@ -9,7 +9,7 @@ class ItemPurchase
     validates :phone_number, format: {with: /\A\d{10}\z|\A\d{11}\z/ , message: "is invalid. Input half-width characters."}
   end
 
-  validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank" }
+  validates :prefecture_id, numericality: {other_than: 1, message: "Select"}
 
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
