@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_index
-  before_action :move_to_root
+  before_action :move_to_root, expect: :index
 
   def index
     @item = Item.find(params[:item_id])
@@ -41,7 +41,7 @@ class PurchasesController < ApplicationController
   end
 
   def move_to_root
-    @purchase = Purchase.find(params[:item_id])
-    redirect_to root_path unless @purchase.blank?
+    @item = Item.find(params[:item_id])
+    redirect_to root_path unless @item.purchase.blank?
   end
 end
