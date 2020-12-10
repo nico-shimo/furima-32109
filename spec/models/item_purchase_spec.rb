@@ -7,7 +7,11 @@ RSpec.describe ItemPurchase, type: :model do
 
   describe '購入商品の保存' do
     context '購入商品が保存できる場合' do
-      it '全ての項目を満たしていれば出品商品は保存される' do
+      it '全ての項目を満たしていれば購入商品は保存される' do
+        expect(@item_purchase).to be_valid
+      end
+      it '建物名が抜けていても購入商品は保存できる' do
+        @item_purchase.building_name = nil
         expect(@item_purchase).to be_valid
       end
     end
