@@ -5,12 +5,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
-    # item = Item.all
-    # @item = Item.find(params[:id])
-    # @item = Item.find(params[:id])
-    # @purchase = Purchase.all
-    # @purchases = Purchase.find(params[:id])
-    # @purchases = Item.purchase
   end
 
   def new

@@ -4,8 +4,8 @@ class PurchasesController < ApplicationController
   before_action :move_to_root
 
   def index
-      @item = Item.find(params[:item_id])
-      @item_purchase = ItemPurchase.new
+    @item = Item.find(params[:item_id])
+    @item_purchase = ItemPurchase.new
   end
 
   def create
@@ -27,7 +27,7 @@ class PurchasesController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
       card: purchase_params[:token],
@@ -37,16 +37,11 @@ class PurchasesController < ApplicationController
 
   def move_to_index
     @item = Item.find(params[:item_id])
-    if current_user == @item.user
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user == @item.user
   end
 
   def move_to_root
     @purchase = Purchase.find(params[:item_id])
-    unless @purchase.blank?
-      redirect_to root_path
-    end
+    redirect_to root_path unless @purchase.blank?
   end
 end
-
