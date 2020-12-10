@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
@@ -31,7 +32,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to item_path
     else
-      render :new
+      render :index
     end
   end
 
