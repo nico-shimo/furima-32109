@@ -62,7 +62,7 @@ RSpec.describe ItemPurchase, type: :model do
         expect(@item_purchase.errors.full_messages).to include('Phone number is invalid. Input half-width characters.')
       end
       it '電話番号が11文字以下でないと購入商品は保存できない' do
-        @item_purchase.phone_number = 111_111_111_111
+        @item_purchase.phone_number = '111_111_111_111'
         @item_purchase.valid?
         expect(@item_purchase.errors.full_messages).to include('Phone number is invalid. Input half-width characters.')
       end

@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, expect: [:purchase_params, :pay_item]
+  before_action :set_item
   before_action :move_to_index
   before_action :move_to_root
 
