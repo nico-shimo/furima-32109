@@ -1,15 +1,14 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item, expect: [:purchase_params, :pay_item]
   before_action :move_to_index
   before_action :move_to_root, expect: :index
 
   def index
-    @item = Item.find(params[:item_id])
     @item_purchase = ItemPurchase.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @item_purchase = ItemPurchase.new(purchase_params)
     if @item_purchase.valid?
       pay_item
@@ -36,12 +35,14 @@ class PurchasesController < ApplicationController
   end
 
   def move_to_index
-    @item = Item.find(params[:item_id])
     redirect_to root_path if current_user == @item.user
   end
 
   def move_to_root
-    @item = Item.find(params[:item_id])
     redirect_to root_path unless @item.purchase.blank?
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end

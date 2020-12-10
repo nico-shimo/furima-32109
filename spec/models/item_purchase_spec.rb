@@ -12,10 +12,15 @@ RSpec.describe ItemPurchase, type: :model do
       end
     end
     context '購入商品が保存できない場合' do
-      it '郵便番号が空、またはハイフンがないと購入商品は保存できない' do
+      it '郵便番号が空だと購入商品は保存できない' do
         @item_purchase.postal_code = ''
         @item_purchase.valid?
-        expect(@item_purchase.errors.full_messages).to include("Postal code can't be blank", 'Postal code is invalid. Include hyphen(-)')
+        expect(@item_purchase.errors.full_messages).to include("Postal code can't be blank")
+      end
+      it '郵便番号にハイフンがないと購入商品は保存できない' do
+        @item_purchase.postal_code = 1_111_111
+        @item_purchase.valid?
+        expect(@item_purchase.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'prefecture_idが1だと購入商品は保存できない' do
         @item_purchase.prefecture_id = 1
