@@ -3,7 +3,7 @@
 ## user テーブル
 
 | Column             |  Type   | Options                    |
-| ----------------------------------------------------------|
+|--------------------|---------|----------------------------|
 | nickname           | string  | null: false, unique: true  | 
 | email              | string  | null: false, unique: true  |
 | encrypted_password | string  | null: false, unique: true  |
@@ -17,22 +17,22 @@
 ### Association
 
 - has_many : items
-- has_many : purchase
+- has_many : purchases
 
 
 ## itemsテーブル
 
-| Colum                    |  Type        |  Options                          |
-|--------------------------|--------------------------------------------------|
-| name                     | string       | null: false                       |
-| introduction             | text         | null: false                       |
-| category_id              | integer      | null: false                       |
-| condition_id             | integer      | null: false                       |
-| postage_id               | integer      | null: false                       |
-| prefecture_id            | integer      | null: false                       |
-| days_id                  | integer      | null: false                       |
-| price                    | integer      | null: false                       |
-| user                     | references   | null: false ,foreign_key: true    |
+| Colum          |  Type        |  Options                          |
+|----------------|--------------|-----------------------------------|
+| name           | string       | null: false                       |
+| introduction   | text         | null: false                       |
+| category_id    | integer      | null: false                       |
+| condition_id   | integer      | null: false                       |
+| postage_id     | integer      | null: false                       |
+| prefecture_id  | integer      | null: false                       |
+| days_id        | integer      | null: false                       |
+| price          | integer      | null: false                       |
+| user           | references   | null: false ,foreign_key: true    |
 
 ### Association
 
@@ -69,4 +69,4 @@
 
 ### Association
 
-- belong_to :purchase
+- belongs_to :purchase
